@@ -19,13 +19,34 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   console.log('useEffect is running');
-  // }, []);
-
   useEffect(() => {
-    console.log('useEffect is running');
-  });
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        const users = await response.json();
+
+        setUsers(users);
+        setLoading(false);
+
+        // store the users data in local storage
+        localStorage.setItem('users', JSON.stringify(users));
+      } catch (error) {
+        console.log('error fetching users', error);
+      }
+    };
+
+    // check if the users data is in local storage
+    if (localStorage.getItem('users')) {
+      // set the users state from local storage
+      console.log('getting data from local storage...');
+      setUsers(JSON.parse(localStorage.getItem('users')));
+      setLoading(false);
+    } else {
+      // call the fetchUsers function
+      console.log('fetching data from the API...');
+      fetchUsers();
+    }
+  }, []);
 
   return (
     <div>
