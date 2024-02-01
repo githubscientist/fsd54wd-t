@@ -46,6 +46,10 @@ const App = () => {
       console.log('fetching data from the API...');
       fetchUsers();
     }
+
+    return () => {
+      console.log('clean up function');
+    }
   }, []);
 
   return (
