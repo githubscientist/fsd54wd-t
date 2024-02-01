@@ -19,23 +19,13 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // useEffect(() => {
+  //   console.log('useEffect is running');
+  // }, []);
+
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        const users = await response.json();
-
-        setUsers(users);
-        setLoading(false);
-
-        console.log(users);
-      } catch (error) {
-        console.log('error fetching users', error);
-      }
-    };
-
-    fetchUsers();
-  }, []);
+    console.log('useEffect is running');
+  });
 
   return (
     <div>
