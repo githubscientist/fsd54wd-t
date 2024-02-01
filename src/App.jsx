@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from 'react';
-
 /*
   useEffect: 
     - useEffect is a hook that allows you to perform side effects in function components
@@ -13,66 +11,26 @@ import React, { useEffect, useState } from 'react';
       b. to run code when the component mounts and when it updates
 */
 
-// Show the list of users from the API, https://jsonplaceholder.typicode.com/users
+import { useEffect, useState } from "react";
+
+// using dependency array in useEffect hook using a simple counter app
 const App = () => {
 
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        const users = await response.json();
+    console.log("useEffect hook ran");
+    console.log("counter: ", counter);
 
-        setUsers(users);
-        setLoading(false);
+    // trigger the change in counter state by clicking the button
 
-        // store the users data in local storage
-        localStorage.setItem('users', JSON.stringify(users));
-      } catch (error) {
-        console.log('error fetching users', error);
-      }
-    };
-
-    // check if the users data is in local storage
-    if (localStorage.getItem('users')) {
-      // set the users state from local storage
-      console.log('getting data from local storage...');
-      setUsers(JSON.parse(localStorage.getItem('users')));
-      setLoading(false);
-    } else {
-      // call the fetchUsers function
-      console.log('fetching data from the API...');
-      fetchUsers();
-    }
-
-    return () => {
-      console.log('clean up function');
-    }
-  }, []);
+  }, [counter]);
 
   return (
     <div>
-      {
-        loading ? (
-          <p>loading data...</p>
-        ) : (
-            <div>
-              <h2>List of Users</h2>
-
-              <ul>
-                {
-                  users.map(user => (
-                    <li key={user.id}>
-                      {user.name}
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
-        )
-      }
+      <p>Counter: {counter}</p>
+      
+      <button onClick={() => setCounter(counter + 1)}>Update Counter</button>
     </div>
   )
 }
