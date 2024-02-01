@@ -9,6 +9,39 @@
     - we can use useEffect in two ways:
       a. to run code only when the component mounts
       b. to run code when the component mounts and when it updates
+
+
+    Type I:
+    
+    useEffect without a dependency array argument: runs code when the component mounts and when it update or re-renders
+
+    syntax:
+
+    useEffect(() => {
+      // code to run when the component mounts and when it updates
+    });
+
+    Type II:
+
+    useEffect with an empty dependency array argument: runs code only when the component mounts
+
+    syntax:
+
+    useEffect(() => {
+      // code to run when the component mounts
+    }, []);
+
+    Type III:
+
+    useEffect with a dependency array argument: runs code when the component mounts and when the value of the dependency array argument changes
+
+    syntax:
+
+    useEffect(() => {
+      // code to run when the component mounts and when the value of the dependency array argument changes
+    }, [arg1, arg2, arg3]);
+
+
 */
 
 import { useEffect, useState } from "react";
