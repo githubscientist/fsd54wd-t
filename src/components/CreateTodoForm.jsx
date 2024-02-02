@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 
-const CreateTodoForm = ({ todos, setTodos, isEditing, setIsEditing, setNewTodoItem }) => {
+const CreateTodoForm = ({ todos, setTodos, isEditing, setIsEditing, newTodoItem, newItemIndex }) => {
     const [newTodo, setNewTodo] = useState({
         name: '',
         description: ''
     });
-    
+  
+  useEffect(() => {
+    if (isEditing) {
+      setNewTodo({
+        name: newTodoItem.name,
+        description: newTodoItem.description
+      });
+      console.log(newItemIndex);
+    }
+
+  }, [newTodoItem, isEditing]);
+
     const addTodo = (e) => {
         e.preventDefault();
 
@@ -27,6 +38,12 @@ const CreateTodoForm = ({ todos, setTodos, isEditing, setIsEditing, setNewTodoIt
   
   const updateTodo = (e) => {
     e.preventDefault();
+
+    const newTodos = [...todos];
+
+    newTodos[newItemIndex] = newTodo;
+
+    setTodos(newTodos);
 
     setIsEditing(false);
   }

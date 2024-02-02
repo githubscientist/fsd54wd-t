@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 
-const TodosList = ({ todos, setTodos, setIsEditing}) => {
+const TodosList = ({ todos, setTodos, setIsEditing, newTodoItem, setNewTodoItem, setNewItemIndex }) => {
   return (
     <div>
         <h3>My Todos</h3>
@@ -10,9 +10,12 @@ const TodosList = ({ todos, setTodos, setIsEditing}) => {
                   todos.map((todo, index) => (
                       <TodoItem
                           todo={todo}
-                      key={index}
-                      index={index}
-                      setIsEditing={setIsEditing}
+                          key={index}
+                          index={index}
+                          setIsEditing={setIsEditing}
+                          newTodoItem={newTodoItem}
+                      setNewTodoItem={setNewTodoItem}
+                      setNewItemIndex={setNewItemIndex}
                       />
                   ))
               }

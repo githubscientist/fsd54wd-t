@@ -1,10 +1,11 @@
 import '../components/TodoItem.css';
 
-const TodoItem = ({ todo, setIsEditing, index }) => {
+const TodoItem = ({ todo, setIsEditing, index, newTodoItem, setNewTodoItem, setNewItemIndex }) => {
 
   const editTodoItem = () => {
     setIsEditing(true);
-
+    setNewTodoItem(todo);
+    setNewItemIndex(index);
     console.log(todo);
   }
 

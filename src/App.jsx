@@ -6,6 +6,12 @@ const App = () => {
 
   const [todos, setTodos] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
+  const [newTodoItem, setNewTodoItem] = useState({
+    name: '',
+    description: '',
+    status: 'Not Completed'
+  });
+  const [newItemIndex, setNewItemIndex] = useState(null);
 
   return (
     <div>
@@ -16,12 +22,18 @@ const App = () => {
         setTodos={setTodos}
         isEditing={isEditing}
         setIsEditing={setIsEditing}
+        newTodoItem={newTodoItem}
+        setNewTodoItem={setNewTodoItem}
+        newItemIndex={newItemIndex}
       />
 
       <TodosList 
         todos={todos}
         setTodos={setTodos}
         setIsEditing={setIsEditing}
+        newTodoItem={newTodoItem}
+        setNewTodoItem={setNewTodoItem}
+        setNewItemIndex={setNewItemIndex}
       />
     </div>
   )
