@@ -1,0 +1,10 @@
+.todoItem {
+    list-style-type: none;
+    background-color:lightgreen;
+    width: 300px;
+    padding: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    height: 150px;
+}

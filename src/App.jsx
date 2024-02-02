@@ -1,16 +1,27 @@
-import Person from "./components/Person";
+import { useState } from "react";
+import CreateTodoForm from "./components/CreateTodoForm";
+import TodosList from "./components/TodosList";
 
 const App = () => {
 
+  const [todos, setTodos] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+
   return (
     <div>
-      <h2>React PropTypes</h2>
-      <Person 
-        props={{
-          name: "John Doe",
-          profession: "Software Engineer",
-          age: 30
-        }}
+      <h3>My Todo</h3>
+
+      <CreateTodoForm 
+        todos={todos}
+        setTodos={setTodos}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
+      />
+
+      <TodosList 
+        todos={todos}
+        setTodos={setTodos}
+        setIsEditing={setIsEditing}
       />
     </div>
   )
