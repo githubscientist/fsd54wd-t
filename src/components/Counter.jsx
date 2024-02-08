@@ -1,13 +1,12 @@
 import React from 'react';
 import IncrementButton from './IncrementButton';
 
-const Counter = ({ count, setCount }) => {
+const Counter = ({ count, increment }) => {
   return (
     <div>
         <h2>Counter: { count }</h2>
         <IncrementButton 
-            count={count}
-            setCount={setCount}      
+          increment = {increment}      
         />
     </div>
   )

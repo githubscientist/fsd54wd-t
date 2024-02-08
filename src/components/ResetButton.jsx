@@ -1,10 +1,6 @@
 import React from 'react';
 
-const ResetButton = ({ setCount }) => {
-
-  const reset = () => {
-    setCount(0);
-  }
+const ResetButton = ({ reset }) => {
 
   return (
       <button onClick={reset}>Reset</button>

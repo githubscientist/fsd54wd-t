@@ -1,13 +1,9 @@
 import React from 'react';
 
-const IncrementButton = ({ count, setCount }) => {
-
-    const handleIncrement = () => {
-        setCount(count + 1);
-    }
+const IncrementButton = ({ increment }) => {
 
   return (
-      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={increment}>Increment</button>
   )
 }
 

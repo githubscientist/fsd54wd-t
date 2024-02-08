@@ -6,14 +6,22 @@ const CounterContainer = () => {
 
   const [count, setCount] = useState(0);
 
+  const increment = () => {
+      setCount(count + 1);
+  }
+
+  const reset = () => {
+    setCount(0);
+  }
+
   return (
-      <div>
+    <div>
       <Counter
         count={count}
-        setCount={setCount}
+        increment={increment}
       />
       <ResetButton 
-        setCount={setCount}
+        reset = {reset}
       />
     </div>
   )
