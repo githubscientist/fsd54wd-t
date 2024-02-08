@@ -28,12 +28,12 @@
 */
 
 import React from 'react';
-import CounterContainer from './containers/CounterContainer';
+import ProfileContainer from './containers/ProfileContainer';
 
 const App = () => {
   return (
     <div>
-      <CounterContainer />
+      <ProfileContainer />
     </div>
   )
 }
