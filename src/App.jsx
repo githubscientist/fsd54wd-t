@@ -14,6 +14,19 @@
     3. Create a Consumer component to access the context.(useContext hook can be used to access the context)
 */
 
+/*
+  Session Task: Profile Name Changes using Context API
+
+  1. Create a new component called ProfileContainer inside the containers folder.
+  2. Create a new context called ProfileContext.
+  3. Create a Provider component and wrap the components that need access to the context.
+  4. Create a Consumer component to access the context.(useContext hook can be used to access the context)
+  5. Create a Profile component inside the components folder.
+  6. Create a ProfileName component inside the components folder.
+  7. Typing the name in the ProfileName component should change the name in the Profile component.
+
+*/
+
 import React from 'react';
 import CounterContainer from './containers/CounterContainer';
 
