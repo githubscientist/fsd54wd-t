@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { CounterContext } from '../containers/CounterContainer';
+import { useCounter } from '../contexts/CounterContext';
 
 const IncrementButton = () => {
 
-  const { increment} = useContext(CounterContext);
+  const { increment} = useCounter();
 
   return (
       <button onClick={increment}>Increment</button>

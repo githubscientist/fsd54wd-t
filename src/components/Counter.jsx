@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import IncrementButton from './IncrementButton';
-import { CounterContext } from '../containers/CounterContainer';
+import { useCounter } from '../contexts/CounterContext';
 
 const Counter = () => {
 
-  const { count } = useContext(CounterContext);
+  const { count } = useCounter();
 
   return (
     <div>
