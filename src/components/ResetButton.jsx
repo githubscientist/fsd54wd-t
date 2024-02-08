@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CounterContext } from '../containers/CounterContainer';
 
-const ResetButton = ({ reset }) => {
+const ResetButton = () => {
+
+  const { reset } = useContext(CounterContext);
 
   return (
       <button onClick={reset}>Reset</button>

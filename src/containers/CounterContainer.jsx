@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import Counter from '../components/Counter';
 import ResetButton from '../components/ResetButton';
+
+const CounterContext = createContext();
 
 const CounterContainer = () => {
 
@@ -16,15 +18,12 @@ const CounterContainer = () => {
 
   return (
     <div>
-      <Counter
-        count={count}
-        increment={increment}
-      />
-      <ResetButton 
-        reset = {reset}
-      />
+      <CounterContext.Provider value={{count, increment, reset}}>
+        <Counter />
+        <ResetButton />
+      </CounterContext.Provider>
     </div>
   )
 }
 
-export default CounterContainer;
+export { CounterContainer as default, CounterContext};

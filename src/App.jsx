@@ -7,6 +7,11 @@
 
   Theme: 
     - A simple counter application with increment and reset button.
+
+  How to use Context API:
+    1. Create a context using createContext() method.
+    2. Create a Provider component and wrap the components that need access to the context.
+    3. Create a Consumer component to access the context.(useContext hook can be used to access the context)
 */
 
 import React from 'react';
