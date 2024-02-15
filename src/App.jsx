@@ -21,8 +21,10 @@ const App = () => {
   }
 
   const decrement = () => {
-    setCount(count - 1);
-    setClicksHistory([...clicksHistory, 'Decr']);
+    if (count > 0) {
+      setCount(count - 1);
+      setClicksHistory([...clicksHistory, 'Decr']);
+    }
   }
 
   const reset = () => {
