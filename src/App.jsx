@@ -10,18 +10,33 @@
 
 import { useReducer } from "react";
 
-const initialState = 0;
+const initialState = {
+  counter: 0,
+  clicks: []
+}
 
 const reducer = (state, action) => {
   switch (action.type) {
     case 'INCREMENT':
-      return state + 1;
+      return {
+        ...state,
+        counter: state.counter + 1,
+        clicks: [...state.clicks, 'Incr']
+      };
     
     case 'DECREMENT':
-      return state - 1;
+      return {
+        ...state,
+        counter: state.counter - 1,
+        clicks: [...state.clicks, 'Decr']
+      };
   
     case 'RESET':
-      return initialState;
+      return {
+        ...state,
+        counter: 0,
+        clicks: [...state.clicks, 'Reset']
+      };
     
     default:
       return state;
@@ -48,14 +63,14 @@ const App = () => {
 
   return (
     <>
-      <h3>Counter: { state }</h3>
+      <h3>Counter: { state.counter }</h3>
 
       <button onClick={increment}>Increment</button>
       <button onClick={decrement}>Decrement</button>
       <button onClick={reset}>Reset</button>
 
       <h3>Clicks History</h3>
-      <p>{  }</p>
+      <p>{ state.clicks.join(', ') }</p>
     </>
   )
 }
