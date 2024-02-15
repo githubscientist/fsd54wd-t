@@ -8,40 +8,54 @@
   - Here, we will put the state logic in a separate file and import it into the component.
 */
 
-import { useState } from "react";
+import { useReducer } from "react";
+
+const initialState = 0;
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    
+    case 'DECREMENT':
+      return state - 1;
+  
+    case 'RESET':
+      return initialState;
+    
+    default:
+      return state;
+  }
+}
 
 const App = () => {
 
-  const [count, setCount] = useState(0);
-  const [clicksHistory, setClicksHistory] = useState([]);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const increment = () => {
-    setCount(count + 1);
-    setClicksHistory([...clicksHistory, 'Incr']);
+    dispatch({ type: 'INCREMENT' });
   }
 
   const decrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-      setClicksHistory([...clicksHistory, 'Decr']);
-    }
+    // complete the decrement function
+    dispatch({ type: 'DECREMENT' });
   }
 
   const reset = () => {
-    setCount(0);
-    setClicksHistory([...clicksHistory, 'Reset']);
+    // complete the reset function
+    dispatch({ type: 'RESET' });
   }
 
   return (
     <>
-      <h3>Counter: { count }</h3>
+      <h3>Counter: { state }</h3>
 
       <button onClick={increment}>Increment</button>
       <button onClick={decrement}>Decrement</button>
       <button onClick={reset}>Reset</button>
 
       <h3>Clicks History</h3>
-      <p>{ clicksHistory.join(', ') }</p>
+      <p>{  }</p>
     </>
   )
 }
